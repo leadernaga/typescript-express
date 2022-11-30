@@ -1,4 +1,4 @@
-const knex = require('../config/connection')
+const knex = require('../../config/connection')
 
 interface dataType {
     name: string

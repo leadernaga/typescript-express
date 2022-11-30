@@ -1,10 +1,10 @@
-'use strict'
+"use strict";
 // Update with your config settings.
 /**
  * @type { Object.<string, import("knex").Knex.Config> }
  */
-const path = require('path')
-const BASE_PATH = path.join(__dirname, 'src', 'models')
+const path = require('path');
+const BASE_PATH = path.join(__dirname, 'src', 'models');
 module.exports = {
     development: {
         client: 'pg',
@@ -29,7 +29,7 @@ module.exports = {
             port: 5432,
             user: 'nagaapparaopolqamarasetti',
             password: 12345,
-            database: 'employees',
+            database: 'testemployees',
         },
         migrations: {
             directory: path.join(BASE_PATH, 'migrations'),
@@ -38,4 +38,4 @@ module.exports = {
             directory: path.join(BASE_PATH, 'seeds'),
         },
     },
-}
+};

@@ -16,17 +16,21 @@ exports.log = void 0;
 const express_1 = __importDefault(require("express"));
 const user_Route_1 = __importDefault(require("./routes/usersRoutes/user.Route"));
 const bunyan_1 = __importDefault(require("bunyan"));
+const Signup = require('../src/routes/Auth/signupRoute');
+const Login = require('../src/routes/Auth/LoginRoute');
 const app = (0, express_1.default)();
 // bunyan log
-exports.log = bunyan_1.default.createLogger({ name: "expressApp" });
-exports.log.info("hi");
+exports.log = bunyan_1.default.createLogger({ name: 'expressApp' });
+exports.log.info('hi');
 app.use(express_1.default.urlencoded({ extended: true }));
 app.use(express_1.default.json());
-app.use("/user", user_Route_1.default);
-app.get("/", (req, res) => {
-    res.send("hi");
+app.use('/user', user_Route_1.default);
+app.use('/signup', Signup);
+app.use('/login', Login);
+app.get('/', (req, res) => {
+    res.send('hi');
 });
 app.listen(8080, () => __awaiter(void 0, void 0, void 0, function* () {
-    console.log("serever started");
+    console.log('serever started');
 }));
 exports.default = app;

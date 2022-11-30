@@ -10,11 +10,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
-// import { log } from '../../index'
+const index_1 = require("../../index");
+const utils = require('../../utils/utils');
 const userController = require('../../controllers/userController/userControllers');
 const route = (0, express_1.Router)();
 route.get('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    // log.info('here users')
+    index_1.log.info('here users');
     try {
         const data = yield userController.getAllusers('users');
         res.status(200).send({ data: data });
@@ -34,17 +35,10 @@ route.get('/:id', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     }
 }));
 route.post('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    // log.info('here in user route')
+    index_1.log.info('here in user route');
     const { name, age } = req.body;
     try {
-        function allLetters(name = '') {
-            let letters = /^[A-Za-z]+$/;
-            if (name.match(letters)) {
-                return true;
-            }
-            return false;
-        }
-        if (!allLetters(name) || !age) {
+        if (!utils.allLetters(name) || !age) {
             return res.status(400).send({ message: 'please enter every field' });
         }
         const data = yield userController.postUsers('users', { name, age });

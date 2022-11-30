@@ -1,7 +1,7 @@
 import request from 'supertest'
 import app from '../../index'
 import sinon from 'sinon'
-const query = require('../../controllers/userControllers')
+const query = require('../../controllers/userController/userControllers')
 
 describe('user', () => {
     afterEach(() => {

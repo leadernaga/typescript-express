@@ -2,7 +2,7 @@ import { Response, Request, Router } from 'express'
 import { log } from '../../index'
 const utils = require('../../utils/utils')
 
-const userController = require('../../controllers/userControllers')
+const userController = require('../../controllers/userController/userControllers')
 const route = Router()
 
 route.get('/', async (req: Request, res: Response) => {
